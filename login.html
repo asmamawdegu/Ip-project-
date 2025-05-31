@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - University of Gondar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 500px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px;
+      width: 100%;
+      gap:10rem;
+    }
+
+    .menu a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .form-container {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 200px;
+     border:3px solid red;
+    }
+
+    h2 {
+      margin-bottom: 0px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input {
+      padding-right: 10px;
+    }
+
+    .password-container i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: gray;
+      font-size: 18px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="menu">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="#">Colleges</a>
+      <div class="dropdown-content">
+        <a href="#">Health Sciences</a>
+        <a href="#">Engineering</a>
+        <a href="#">Social Sciences</a>
+        <a href="#">Natural Sciences</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Registrar</a>
+      <div class="dropdown-content">
+        <a href="fresh-students-registration.html">Fresh Students Registration</a>
+        <a href="students-file.html">Students File</a>
+      </div>
+    </div>
+    <a href="about.html">Abouts</a>
+  </div><br><br><br><br><br>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" required>
+        <i class="ri-eye-line" id="togglePassword"></i>
+      </div>
+
+      <button type="submit">Login</button>
+      <p>  don't have an account?<a href="signup.html">signup</a></p>
+
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Login form validation
+      document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        if (!username || !password) {
+          alert("Please enter both username and password.");
+          return;
+        }
+
+        alert("Login Successful!\n\nUsername: " + username);
+        document.getElementById("loginForm").reset();
+      });
+
+      // Password toggle function
+      const passwordInput = document.getElementById("password");
+      const togglePassword = document.getElementById("togglePassword");
+
+      togglePassword.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePassword.classList.replace("ri-eye-line", "ri-eye-off-line");
+        } else {
+          passwordInput.type = "password";
+          togglePassword.classList.replace("ri-eye-off-line", "ri-eye-line");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

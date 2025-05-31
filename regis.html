@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Student Registration</title>
+    <link rel="stylesheet" href="regiStyles.css"> <!-- Linking External CSS -->
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20%;
+}
+
+ .header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 5px 4px;
+      position: relative;
+      width:200px;
+      font
+    }
+
+    .header .navbar {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      width:200px;
+    }
+
+    .navbar a, .theme-toggle-btn {
+      color: white;
+      padding: 2px  4px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: 8px;
+    }
+
+    .theme-toggle-btn i {
+      font-size: 10px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px;
+      background-color:blue;
+      width:600px;
+      gap: 10rem;
+    }
+.header h1{
+  font-size:4rem;}
+  
+    .menu a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      gap:10rem;
+      font-size:1rem;
+      gap: 10rem;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: purple;
+      min-width: 300px;
+      padding:5rem;
+      z-index: 1;
+      gap:4rem;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      width:3px;
+      
+    }
+.container {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    margin-top: 7rem;
+    border:.5rem solid orange;
+      margin-left: 5rem;
+}
+    padding: 1px;
+    color:white;
+    border: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Default radio button style */
+.gender-radio {
+  appearance: none; /* Remove default radio button style */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid gray; /* Default border */
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: white; /* Default background */
+  transition: background-color 0.3s ease;
+}
+
+/* Create the inner circle effect */
+.gender-radio::before {
+  content: '';
+  position: absolute;
+  top: 4px; /* Adjust to center inner circle */
+  left: 4px; /* Adjust to center inner circle */
+  width: 12px; /* Inner circle size */
+  height: 12px; /* Inner circle size */
+  border-radius: 50%;
+  background-color: transparent; /* Default inner circle is transparent */
+  transition: background-color 0.3s ease;
+}
+
+/* Male selected */
+.gender-radio[value="male"]:checked::before {
+  background-color: green;
+}
+
+/* Female selected */
+.gender-radio[value="female"]:checked::before {
+  background-color: yellow;
+}
+
+/* Other selected */
+.gender-radio[value="other"]:checked::before {
+  background-color: red;
+}
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+
+table {
+    margin-top: 20px;
+    width: 0%;
+    border-collapse: collapse;
+      border:2px solid purple;
+      margin-left:    4rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+   <div class="menu">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="#">Colleges</a>
+      <div class="dropdown-content">
+        <a href="#">Health Sciences</a>
+        <a href="#">Engineering</a>
+        <a href="#">Social Sciences</a>
+        <a href="#">Natural Sciences</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Registrar</a>
+      <div class="dropdown-content">
+        <a href="fresh-students-registration.html">Fresh Students Registration</a>
+        <a href="students-file.html">Students File</a>
+      </div>
+    </div>
+    <a href="#">Contact</a>
+  </div>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gender:</label>
+             <label>
+  <input type="radio" name="gender" value="male" class="gender-radio" />
+  Male
+</label>
+<label>
+  <input type="radio" name="gender" value="female" class="gender-radio" />
+  Female
+</label>
+<label>
+  <input type="radio" name="gender" value="other" class="gender-radio" />
+  Other
+</label>
+
+            <label for="Stream">Stream:</label>
+            <input type="text" id="stream" name="Stream" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p id="message"></p>
+</div>
+      <button onclick="viewStudents()">View Registered Students</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Stream</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="studentsList"></tbody>
+        </table>
+    <button onclick="clearAllData()">Clear All Registered Students</button>
+    <script src="regiScript.js"></script> <!-- Linking External JavaScript -->
+    <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let studentData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        dob: document.getElementById("dob").value,
+        gender: document.getElementById("gender").value,
+        course: document.getElementById("Stream").value.trim(),
+        phone: document.getElementById("phone").value.trim()
+    };
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.push(studentData);
+    localStorage.setItem("students", JSON.stringify(students));
+
+    document.getElementById("message").innerText = "Registration successful!";
+    this.reset();
+});
+
+function viewStudents() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let tableBody = document.getElementById("studentsList");
+    tableBody.innerHTML = ""; // Clear previous entries
+
+    students.forEach((student, index) => {
+        let row = `<tr>
+            <td>${student.name}</td>
+            <td>${student.email}</td>
+            <td>${student.dob}</td>
+            <td>${student.gender}</td>
+            <td>${}</td>
+            <td>${student.phone}</td>
+            <td><button onclick="deleteStudent(${index})">Delete</button></td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+}
+
+function deleteStudent(index) {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.splice(index, 1); // Remove student at the given index
+    localStorage.setItem("students", JSON.stringify(students)); // Update Local Storage
+    viewStudents(); // Refresh the table
+}
+
+function clearAllData() {
+    // Show confirmation dialog
+    let confirmation = confirm("Are you sure you want to delete all registered student data?");
+    
+    if (confirmation) {
+        localStorage.removeItem("students"); // Delete all students
+        document.getElementById("studentsList").innerHTML = ""; // Clear the table
+        alert("All registered student data has been deleted!");
+    }
+}
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let gender = document.querySelector('input[name="gender"]:checked'); // Get selected gender
+
+    let studentData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        dob: document.getElementById("dob").value,
+        gender: gender ? gender.value : "", // Store selected gender
+        course: document.getElementById("Stream").value.trim(),
+        phone: document.getElementById("phone").value.trim()
+    };
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.push(studentData);
+    localStorage.setItem("students", JSON.stringify(students));
+
+    document.getElementById("message").innerText = "Registration successful!";
+    this.reset();
+});
+function toggleTable() {
+    let table = document.getElementById("studentsTable");
+    
+    if (table.style.display === "none" || table.style.display === "") {
+        table.style.display = "table"; // Show table
+    } else {
+        table.style.display = "none"; // Hide table
+    }
+}
+    </script>
+</body>
+
+</html>

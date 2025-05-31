@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UoG Tewodros Campus's official website</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+  
+  <style>
+  
+    .header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 80px 100px;
+      position: relative;
+      width:1060px;
+    
+  }
+    .header .navbar {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      display: flex;
+      gap: 150px;
+      align-items: center;
+      width:800px;
+      padding:rem;
+    }
+
+    .navbar a, .theme-toggle-btn {
+      color: white;
+      padding: 10px 20px;
+      background-color: gray;
+      border: 3px solid peru;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top:200px;
+      margin-left:50px;
+    }
+.theme-toggle-btn {
+  BACKGROUND-color:gray;
+  color:black;
+  padding: 10px 20px;
+}
+    .theme-toggle-btn i {
+      font-size: 50px;
+      color:black;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background-color:blue;
+      width:100%;
+      top:2rem;
+      gap: 7rem;
+    }
+.header h1{
+  font-size:4rem;}
+  
+    .menu a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      gap:30rem;
+      font-size:1.5rem;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: grey;
+      min-width: 300px;
+      padding:2rem;
+      z-index: 1;
+      gap:rem;
+    }
+    .dropdown-content a {
+      font-size: 1rem;
+      gap: 4rem;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      width:30px;
+      height:100px;
+      margin-left:-5rem;
+      
+    }
+
+    .video-section, .form-section {
+      padding: 30px;
+      text-align: center;
+      width:100px;
+      height:auto;
+    }
+
+    .form-section {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+
+    .radio-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 450px;
+      bottom: 0;
+      width: 100%;
+      font-size:2rem;
+    }
+.iframe-container {
+    width:900px;
+    max-width:1000px;
+    height: 500px;
+    border: 5px solid red;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    margin-left:70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Iframe */
+iframe {
+    width: 950px;;
+    height: 500px;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .iframe-container {
+        width: 900px;
+        height: 400%;
+        border-radius: 0;
+    }
+}
+    @media (max-width: 640px) {
+      .navbar a, .theme-toggle-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body style="background-image: url('C:\Users\hp\Pictures\download (19).jpeg');
+background-position:center ;
+background-size: cover;">
+  <div class="header">
+    <h1>UoG Tewodros Campus</h1>
+    <p style=" font-size:2rem; color:green;">Welcome to the UoG Tewodros Campus's official website!</p>
+    <div class="navbar">
+      <a href="signup.html">Sign Up</a>
+       <a href="login.html">Login</a>
+      
+    </div>
+  </div>
+
+  <div class="menu">
+    <a href="#">Home</a>
+    <div class="dropdown">
+      <a href="#">Colleges</a>
+      <div class="dropdown-content">
+        <a href="COI.html">CoI</a><br><br>
+        <a href="#">Engineering</a><br><br>
+        <a href="#">Health Sciences</a><br><br>
+        <a href="#">DVM</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Registrar</a>
+      <div class="dropdown-content">
+        <a href="regis.html">FSRF</a><br><br>
+        <a href="students-file.html">Students File</a>
+      </div>
+    </div>
+    <a href="about.html">abouts</a>
+  </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+<div class="iframe-container">
+      <iframe width="560" height="315" onclick="goFullScreen()"
+    <source src="C:\Users\hp\Desktop\IPpro\c47c00d01916f49ef86dc0cfa760b6f4_1742635969602.mp4" type="video/mp4">>
+</iframe></div> 
+  <!-- <div class="video-section">
+    <h2>About Our University</h2>
+    <iframe width="600" height="340" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+  </div>-->
+
+  <div class="footer">
+    <p>&copy; 2025 University of Gondar. All rights reserved.</p>
+    <p>Contact us: info@uog.edu | +251-969-601-928</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

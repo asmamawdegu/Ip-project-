@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - University of Gondar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 960px;
+      margin: top -10px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px;
+      width: 100%;
+      gap:10rem;
+    }
+
+    .menu a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 60px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .form-container {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px   rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 200px;
+      height: auto;
+      margin-top: 10px;
+      border:3px solid gold;
+    }
+
+    h2 {
+      margin-bottom: 2px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .radio-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="#">Colleges</a>
+      <div class="dropdown-content">
+        <a href="#">Health Sciences</a>
+        <a href="#">Engineering</a>
+        <a href="#">Social Sciences</a>
+        <a href="#">Natural Sciences</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Registrar</a>
+      <div class="dropdown-content">
+        <a href="regis.html">FSRF</a>
+        <a href="students-file.html">SF</a>
+      </div>
+    </div>
+    <a href="about.html">Abouts</a>
+  </div>
+
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+  
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+  
+      <div class="radio-container">
+        <label>Sex:</label>
+        <input type="radio" id="male" name="sex" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="Female">
+        <label for="female">Female</label>
+      </div>
+  
+      <label for="region">Region:</label>
+      <input type="text" id="region" name="region" required>
+  
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
+  
+      <label for="job">Job/Profession:</label>
+      <input type="text" id="job" name="job" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="password">Password:</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" required>
+        <i class="ri-eye-line" id="togglePassword"></i>
+      </div>
+  
+      <button type="submit">Register</button>
+    </form>
+    <p> already have an account?  <a href="login.html">Login</a></p>
+  </div> 
+  
+  <script>
+  
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("signupForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+  
+        let fullname = document.getElementById("fullname").value;
+        let age = document.getElementById("age").value;
+        let sex = document.querySelector('input[name="sex"]:checked');
+        let region = document.getElementById("region").value;
+        let city = document.getElementById("city").value;
+        let job = document.getElementById("job").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+  
+        // Check if any required field is missing
+        if (!fullname || !age || !sex || !region || !city || !job || !email || !password) {
+          alert("Please fill out all fields.");
+          return;
+        }
+  
+        // Age validation based on job
+        if (job === "student" && parseInt(age) < 18) {
+          alert("You must be 18 years or older to register as a student.");
+          return;
+        } else if (job !== "student" && parseInt(age) < 25) {
+          alert("You must be 25 years or older to register for jobs other than student.");
+          return;
+        }
+  
+        // Validate email format
+        let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+  
+        // Validate password (length check as an example)
+        if (password.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          return;
+        }
+  
+        // If everything is valid, show success message
+        alert("Registration Successful!\n\n" +
+              "Full Name: " + fullname + "\n" +
+              "Age: " + age + "\n" +
+              "Sex: " + sex.value + "\n" +
+              "Region: " + region + "\n" +
+              "City: " + city + "\n" +
+              "Job: " + job + "\n" +
+              "Email: " + email + "\n" +
+              "Password: " + password);  // You can decide whether to show the password in the alert or not.
+        // Reset the form
+        document.getElementById("signupForm").reset();
+      });
+    });
+    
+  </script>
+  
+</body>
+</html>
